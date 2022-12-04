@@ -3,12 +3,12 @@ import { lazy } from 'react';
 import SharedLayout from '../SharedLayout/SharedLayout';
 import Home from 'pages/Home/Home';
 
-
 const Movies = lazy(() => import('pages/Movies/Movies'));
-const MovieDetails = lazy(() => import('../../pages/MovieDetails/MovieDetails'));
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
+);
 const Cast = lazy(() => import('../Cast/Cast'));
 const Reviews = lazy(() => import('../Reviews/Reviews'));
-
 
 export const App = () => {
   return (

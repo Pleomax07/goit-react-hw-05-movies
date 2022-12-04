@@ -1,14 +1,10 @@
-import TrendingToday from 'components/TrendingToday/TrendingToday'
-import { Link } from "./Home.styled";
-
+import TrendingToday from 'components/TrendingToday/TrendingToday';
 
 const Home = () => {
- 
   return (
     <main>
-    <h1>Trending today</h1>
-<TrendingToday />
-
+      <h1>Trending today</h1>
+      <TrendingToday />
     </main>
   );
 };
