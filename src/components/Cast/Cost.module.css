@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.item {
+    margin-right: 10px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
