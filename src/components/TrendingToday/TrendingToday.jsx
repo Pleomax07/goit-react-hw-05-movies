@@ -16,18 +16,22 @@ const TrendingToday = () => {
 
   return (
     <ul className={css.list}>
-      {popularMovies.map(({ id, title, name, poster_path }) => (
+      {popularMovies && (
+      popularMovies.map(({ id, title, poster_path }) => (
         <li key={id} className={css.item}>
           <Link to={`movies/${id}`} className={css.link}>
             <h2>{title}</h2>
             <img
               src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-              alt={name}
+              alt={title}
             />
           </Link>
         </li>
-      ))}
+      ))
+      )}
     </ul>
   );
 };
+
+
 export default TrendingToday;
