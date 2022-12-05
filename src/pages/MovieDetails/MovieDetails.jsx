@@ -1,14 +1,14 @@
-import { useParams, Outlet, Link, useLocation  } from 'react-router-dom';
+import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../servises/API';
-import css from './MovieDetails.module.css'
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
 
   const location = useLocation();
-  const backLinkHref = location?.state ?? "/";
-  
+  const goBackLink = location?.state ?? '/';
+
   useEffect(() => {
     localStorage.setItem('savedMovie', JSON.stringify(movieId));
   }, [movieId]);
@@ -26,7 +26,9 @@ const MovieDetails = () => {
     movieById;
   return (
     <>
-     <Link to={backLinkHref} className={css.link}>Go back</Link>
+      <Link to={goBackLink} className={css.link}>
+        Go back
+      </Link>
       {release_date && <h2>{`${title} (${release_date.slice(0, 4)})`}</h2>}
       <b>{`User score ${(vote_average * 10).toFixed(0)} %`}</b>
       <h3>Overview</h3>
@@ -41,10 +43,14 @@ const MovieDetails = () => {
       )}
       <ul>
         <li className={css.item}>
-          <Link to="cast" className={css.link}>Cast</Link>
+          <Link to="cast" state={location.state} className={css.link}>
+            Cast
+          </Link>
         </li>
-        <li  className={css.item}>
-          <Link to="reviews" className={css.link}>Reviews</Link>
+        <li className={css.item}>
+          <Link to="reviews" state={location.state} className={css.link}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />

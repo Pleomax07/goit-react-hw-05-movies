@@ -17,6 +17,7 @@ const Cast = () => {
 
   return (
     <>
+    {movieCastById.length > 0 ? (
       <ul className={css.list}>
         {movieCastById.map(({ id, profile_path, name, character }) => {
           return (
@@ -33,7 +34,7 @@ const Cast = () => {
             </li>
           );
         })}
-      </ul>
+      </ul>) : (<b>We don't have any cast information for this movie</b>)}
     </>
   );
 };
